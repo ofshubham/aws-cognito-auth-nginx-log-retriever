@@ -15,10 +15,25 @@ npm i
 
 ```
 /api/auth/register
-/api/auth/login
-/api/auth/confirm
-/api/logs
+```
 
+Method: POST
+Body: {
+username: username,
+email: email,
+password: password
+}
+
+```
+/api/auth/login
+```
+
+```
+/api/auth/confirm
+```
+
+```
+/api/logs
 ```
 
 ## Contributing
