@@ -19,7 +19,7 @@ Registers a single user.
 
 - **URL**
 
-  /api/auth/register
+  `/api/auth/register`
 
 - **Method:**
 
@@ -51,7 +51,7 @@ Verifies the user
 
 - **URL**
 
-  /api/auth/confirm
+  `/api/auth/confirm`
 
 - **Method:**
 
@@ -83,7 +83,7 @@ Api for user login
 
 - **URL**
 
-  /api/auth/login
+  `/api/auth/login`
 
 - **Method:**
 
@@ -115,7 +115,7 @@ API for getting nginx access logs. Logs can be filtered on the basis of timestam
 
 - **URL**
 
-  /api/auth/logs
+  `/api/logs`
 
 - **Method:**
 
