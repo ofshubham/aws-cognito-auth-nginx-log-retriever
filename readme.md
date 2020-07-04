@@ -25,6 +25,10 @@ Registers a single user.
 
   `POST`
 
+- **Header:**
+
+  `content-type: application/json`
+
 - **Body**
 
   **Required:**
@@ -53,6 +57,10 @@ Verifies the user
 
   `POST`
 
+- **Header:**
+
+  `content-type: application/json`
+
 - **Body**
 
   **Required:**
@@ -69,28 +77,65 @@ Verifies the user
   - **Code:** 401 Unauthorized <br />
     **Content:** `{ status : "failure", data: null, err: err }`
 
-```
-/api/auth/register
-```
+3. ## **Login User**
 
-Method: POST
-Body: {
-username: username,
-email: email,
-password: password
-}
+Api for user login
 
-```
-/api/auth/login
-```
+- **URL**
 
-```
-/api/auth/confirm
-```
+  /api/auth/login
 
-```
-/api/logs
-```
+- **Method:**
+
+  `POST`
+
+- **Header:**
+
+  `content-type: application/json`
+
+- **Body**
+
+  **Required:**
+
+  `username = [string] password = [string]`
+
+- **Success Response:**
+
+  - **Code:** 200 <br />
+    **Content:** `{ status : "success", data: returnData, err: null }`
+
+- **Error Response:**
+
+  - **Code:** 401 Unauthorized <br />
+    **Content:** `{ status : "failure", data: null, err: err }`
+
+3. ## **nginx logs retriever**
+
+API for getting nginx access logs. Logs can be filtered on the basis of timestamps of date range or IP address using query params.
+
+- **URL**
+
+  /api/auth/logs
+
+- **Method:**
+
+  `GET`
+
+- **Header:**
+
+  `content-type: application/json, authorization: Bearer {token}`
+
+- **Success Response:**
+
+  - **Code:** 200 <br />
+    **Content:** `{ status : "success", data: {count: count, logs: [logs]}, err: null }`
+
+- **Error Response:**
+
+  - **Code:** 400 Bad Request <br />
+    **Content:** `{ status : "failure", data: null, err: err }`
+  - **Code:** 500 Internal Server Error <br />
+    **Content:** `{ status : "failure", data: null, err: err }`
 
 ## Contributing
 
