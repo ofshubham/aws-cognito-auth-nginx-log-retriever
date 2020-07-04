@@ -11,6 +11,17 @@ Use the package manager [npm](https://www.npmjs.com/) to install all the depende
 npm i
 ```
 
+## Environment setup
+
+Create a .env file with following variables
+
+```
+PORT= 
+COGNITO_POOL_ID= 
+COGNITO_CLIENT_ID= 
+REGION=
+```
+
 ## APIs
 
 1. ## **Register User**
