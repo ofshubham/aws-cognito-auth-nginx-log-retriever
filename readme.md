@@ -13,42 +13,33 @@ npm i
 
 ## APIs
 
-## **Show User**
+## **Register User**
 
-Returns json data about a single user.
+Registers a single user.
 
 - **URL**
 
-  /users/:id
+  /api/auth/register
 
 - **Method:**
 
-  `GET`
+  `POST`
 
-- **URL Params**
+- **Body**
 
   **Required:**
 
-  `id=[integer]`
-
-- **Data Params**
-
-  None
+  `username = [string] email = [string] password = [string]`
 
 - **Success Response:**
 
   - **Code:** 200 <br />
-    **Content:** `{ id : 12, name : "Michael Bloom" }`
+    **Content:** `{ status : "success", data: returnData, err: null }`
 
 - **Error Response:**
 
-  - **Code:** 404 NOT FOUND <br />
-    **Content:** `{ error : "User doesn't exist" }`
-
-  OR
-
-  - **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error : "You are unauthorized to make this request." }`
+  - **Code:** 400 Bad Request <br />
+    **Content:** `{ status : "failure", data: null, err: err }`
 
 ```
 /api/auth/register
