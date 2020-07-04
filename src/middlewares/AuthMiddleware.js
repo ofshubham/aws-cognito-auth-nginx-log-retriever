@@ -5,6 +5,7 @@ const https = require("https");
 const request = require("request");
 global.fetch = require("node-fetch");
 const AmazonCognitoIdentity = require("amazon-cognito-identity-js");
+const { response } = require("express");
 const poolData = {
   UserPoolId: cognitoPoolId,
   ClientId: cognitoClientId,
@@ -63,7 +64,7 @@ exports.Validate = function (req, res, next) {
       res.status(400).json(response);
     }
   } catch (err) {
-    res.status(500);
-    return res.send(err.message);
+    response.err = err.message;
+    res.status(500).json(response);
   }
 };

@@ -2,13 +2,13 @@ const NginxParser = require("nginxparser");
 exports.logs = function (req, res) {
   let response = { status: "failure", data: null, err: null };
   try {
-    let { from, to } = req.query;
+    let { from, to, ip } = req.query;
     const parser = new NginxParser(
       "$remote_addr - $remote_user [$time_local] " +
         '"$request" $status $body_bytes_sent "$http_referer" "$http_user_agent"'
     );
     const path = "./test.log";
-    logsJSON(path, parser, from, to)
+    logsJSON(path, parser, from, to, ip)
       .then((logs) => {
         response.status = "success";
         response.data = { count: logs.length, logs: logs };
@@ -24,7 +24,7 @@ exports.logs = function (req, res) {
   }
 };
 
-function logsJSON(path, parser, from, to) {
+function logsJSON(path, parser, from, to, ip) {
   //
   const returnJSON = [];
   return new Promise((resolve, reject) => {
@@ -47,6 +47,10 @@ function logsJSON(path, parser, from, to) {
               }
             } else {
               reject("Invalid timestamps");
+            }
+          } else if (ip) {
+            if (row.remote_addr === ip) {
+              returnJSON.push(row);
             }
           } else {
             row.time_local = new Date(row.time_local);
