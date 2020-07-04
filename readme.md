@@ -13,7 +13,7 @@ npm i
 
 ## APIs
 
-## **Register User**
+1. ## **Register User**
 
 Registers a single user.
 
@@ -39,6 +39,34 @@ Registers a single user.
 - **Error Response:**
 
   - **Code:** 400 Bad Request <br />
+    **Content:** `{ status : "failure", data: null, err: err }`
+
+2. ## **Verify User**
+
+Verifies the user
+
+- **URL**
+
+  /api/auth/confirm
+
+- **Method:**
+
+  `POST`
+
+- **Body**
+
+  **Required:**
+
+  `username = [string] code = [string]`
+
+- **Success Response:**
+
+  - **Code:** 200 <br />
+    **Content:** `{ status : "success", data: returnData, err: null }`
+
+- **Error Response:**
+
+  - **Code:** 401 Unauthorized <br />
     **Content:** `{ status : "failure", data: null, err: err }`
 
 ```
