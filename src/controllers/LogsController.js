@@ -25,7 +25,6 @@ exports.logs = function (req, res) {
 };
 
 function logsJSON(path, parser, from, to, ip) {
-  //
   const returnJSON = [];
   return new Promise((resolve, reject) => {
     try {
